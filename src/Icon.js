@@ -10,7 +10,9 @@ const propTypes = {
  *  badge 默认显示内容1
  */
 const defaultProps = {
-	clsPrefix: 'uf'
+	clsPrefix: '',
+	className:'uf',
+	type: ''
 };
 
 class Icon extends Component {
@@ -19,13 +21,21 @@ class Icon extends Component {
 	}
 	render(){
 		let {type,className,clsPrefix, ...others} = this.props;
-		let clsObj = {};
 		
-		let classNames = classnames(clsPrefix,type);
-
-		return(
-			<i {...others} className={classnames(classNames,className)}></i> 
-		)
+		
+		
+		if(className == 'iconfont'){
+			//iconfont icon-qq
+			return(
+				<i {...others} className={classnames(className,type)}></i> 
+			)	
+		}else{
+			//uf-search
+			let ufType = classnames(clsPrefix,type);
+			return(
+				<i {...others} className={classnames(className, ufType)}></i> 
+			)
+		}
 	}
 }
 Icon.defaultProps = defaultProps;

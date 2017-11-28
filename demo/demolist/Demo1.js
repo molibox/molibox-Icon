@@ -11,7 +11,13 @@ class Demo1 extends Component {
 		return (
 			<div className="tinper-icon-demo">
 				<ul className="icon_lists">
-            
+            		<li>
+	                <Icon className="iconfont" type="icon-wechat"></Icon>
+	                    <div className="name">xxx</div>
+	                    <div className="fontclass">.uf-wechat</div>
+	                </li>
+
+
 	                <li>
 	                <Icon type="uf-wechat"></Icon>
 	                    <div className="name">微信</div>
