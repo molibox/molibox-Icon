@@ -38,7 +38,9 @@ var propTypes = {
  *  badge 默认显示内容1
  */
 var defaultProps = {
-	clsPrefix: 'uf'
+	clsPrefix: '',
+	className: 'uf',
+	type: ''
 };
 
 var Icon = function (_Component) {
@@ -57,11 +59,14 @@ var Icon = function (_Component) {
 		    clsPrefix = _props.clsPrefix,
 		    others = _objectWithoutProperties(_props, ['type', 'className', 'clsPrefix']);
 
-		var clsObj = {};
-
-		var classNames = (0, _classnames2["default"])(clsPrefix, type);
-
-		return _react2["default"].createElement('i', _extends({}, others, { className: (0, _classnames2["default"])(classNames, className) }));
+		if (className == 'iconfont') {
+			//iconfont icon-qq
+			return _react2["default"].createElement('i', _extends({}, others, { className: (0, _classnames2["default"])(className, type) }));
+		} else {
+			//uf-search
+			var ufType = (0, _classnames2["default"])(clsPrefix, type);
+			return _react2["default"].createElement('i', _extends({}, others, { className: (0, _classnames2["default"])(className, ufType) }));
+		}
 	};
 
 	return Icon;
